@@ -1,13 +1,201 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.appContainer {
+  display: flex;
+  height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 300px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.groupList {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 20px;
+}
+
+.groupItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.groupItem.active {
+  background: #ddd;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+}
+
+.circle.small {
+  width: 40px;
+  height: 40px;
+}
+
+.addBtn {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 30px;
+  background-color: #1e00a3;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* NOTES AREA */
+.notesArea {
+  flex: 1;
+  background-color: #dbe3f1;
+  display: flex;
+  flex-direction: column;
+}
+
+.emptyState {
+  margin: auto;
+  text-align: center;
+}
+
+.notesHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  color: white;
+}
+
+.notesList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.noteCard {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.noteCard span {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.inputArea {
+  display: flex;
+  padding: 15px;
+  background: #001f8b;
+}
+
+.inputArea textarea {
+  flex: 1;
+  padding: 10px;
+  resize: none;
+}
+
+.inputArea button {
+  width: 50px;
+  border: none;
+  font-size: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.sendActive {
+  background: white;
+}
+
+.sendDisabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* MODAL */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalBox {
+  background: white;
+  padding: 20px;
+  width: 320px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modalBox input {
+  padding: 8px;
+}
+
+.colorOptions {
+  display: flex;
+  gap: 10px;
+}
+
+.colorCircle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .appContainer.mobile {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .notesArea {
+    width: 100%;
+  }
+
+  .backBtn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    color: white;
+  }
 }
